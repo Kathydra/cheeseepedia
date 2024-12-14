@@ -214,7 +214,7 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "text" }
 
-      - { label: "Date (Formatted 2024-12-31)", name: "date", widget: "string", required: false}
+      - { label: "Date (Formatted 2024-12-31)", name: "startdate", widget: "string", required: false}
       - label: "Citations (List sources here!)"
         name: "citations"
         widget: "list"
@@ -284,7 +284,7 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "text" }
 
-      - { label: "Date (Formatted 2024-12-31)", name: "date", widget: "string", required: false}
+      - { label: "Date (Formatted 2024-12-31)", name: "startdate", widget: "string", required: false}
       - label: "Citations (List sources here!)"
         name: "citations"
         widget: "list"
@@ -347,6 +347,37 @@ collections:
         - { label: "Five Nights at Freddy's", value: "Five Nights at Freddy's" }
         - { label: "Five Nights at Freddy's 2", value: "Five Nights at Freddy's 2" }
         - { label: "The Rock-afire Explosion Documentary", value: "The Rock-afire Explosion Documentary" }
+  - name: "reviews"
+    label: "Reviews"
+    folder: "content/reviews/"
+    preview_path: "reviews/{{filename}}"
+    create: true
+    extension: html
+    format: toml-frontmatter
+    slug: "{{slug}}"
+    editor:
+      preview: true
+    fields:
+      - { label: "Would You Reccomend This?", name: "reccomend", widget: "boolean", default: true, required: true}
+      - { label: "Review Summary / Header", name: "title", widget: "string" }
+      - { label: "Review", name: "body", widget: "text" }
+      - { label: "Date (Formatted 2024-12-31)", name: "startdate", widget: "string", required: false}
+      - { label: "Article Being Reviewed (Title)", name: "page", widget: "string", required: true}
+      - label: "Contributors (List your Username here!)"
+        name: "contributors"
+        widget: "list"
+        required: true
+        min: 1
+        max: 1
+        field: {label: Username, name: username, widget: string}
+      - label: "Tags"
+        name: "tags"
+        widget: "select"
+        min: 1
+        max: 1
+        required: true
+        options:
+          - { label: "Reviews", value: "Reviews" }
 
   - name: "news"
     label: "Animatronic News"
@@ -361,8 +392,7 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Body", name: "body", widget: "text" }
-
-      - { label: "Date (Formatted 2024-12-31)", name: "date", widget: "string", required: false}
+      - { label: "Date (Formatted 2024-12-31)", name: "startdate", widget: "string", required: false}
       - { label: "Thumbnail (example.avif)", name: "pageThumbnailFile", widget: "string", required: false}
       - label: "Contributors (List your Username here!)"
         name: "contributors"
